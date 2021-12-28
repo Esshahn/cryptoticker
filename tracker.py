@@ -25,7 +25,7 @@ def find_symbol_in_list(symbol, list):
 
 
 def format_crypto_data(symbols, crypto):
-    msg = ""
+    msg = "Crypto prices:\n"
     for symbol in symbols:
         item = find_symbol_in_list(symbol, crypto)
         if item is not None:
@@ -41,6 +41,31 @@ def format_crypto_data(symbols, crypto):
             msg += "\n"
         else:
             print("Symbol not found: "+symbol)
+    msg += "\n"
+    print(msg)
+    return msg
+
+
+def create_portfolio(portfolio, crypto):
+    for item in portfolio:
+        item["price"] = find_symbol_in_list(item["symbol"], crypto)[
+            "quote"]["EUR"]["price"]
+        item["value"] = round(item["price"] * item["amount"], 2)
+        item["name"] = find_symbol_in_list(item["symbol"], crypto)[
+            "name"]
+    return portfolio
+
+
+def format_portfolio(portfolio):
+    msg = "Portfolio:\n"
+    total_worth = 0
+    for item in portfolio:
+        msg += str(item["name"] + " (" + item["symbol"]) + "): "
+        msg += str(round(item["value"], 2)) + " EUR"
+        msg += "\n"
+        total_worth += item["value"]
+    msg += "\nTotal: " + str(round(total_worth, 2)) + " EUR"
+
     print(msg)
     return msg
 
@@ -58,16 +83,3 @@ def send_mail(bodymsg, email):
     server.login(email["email_from"], email["email_from_password"])
     server.sendmail(email["email_from"], email["email_to"], msg.encode('utf8'))
     server.quit()
-
-
-# ------------------ main ------------------ #
-
-
-crypto_all = load_json("crypto-data.json")
-crypto = crypto_all["data"]
-user_all = load_json("user-data.json")
-symbols = user_all["symbols"]
-email = load_json('email.json')
-
-body = format_crypto_data(symbols, crypto)
-send_mail(body, email)

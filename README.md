@@ -1,6 +1,11 @@
 # cryptoticker
 
-Simple python script that downloads crypto currency information from coinmarketcap.com
+Simple python script that downloads crypto currency information from coinmarketcap.com and sends emails with summaries
+
+* downloads current prices
+* lets you specify which currencies you want to get info about
+* lets you specify your personal portfolio and displays it's current worth
+* sends you above data as a plain text email
 
 ## Prerequisites
 
@@ -10,7 +15,7 @@ Simple python script that downloads crypto currency information from coinmarketc
 
 `pip3 install requirements.txt` - installs `requests` module
 
-## run
+## Configure & Run
 
 1. Enter your data in `user-data_example.json` (& remove `_example` from the filename)
 
@@ -18,17 +23,26 @@ Simple python script that downloads crypto currency information from coinmarketc
 {
   "api_key": "your-coinmarketcap-api-key",
   "symbols": ["BTC","ETH","SOL","MATIC"],
-  "currency": "EUR"
+  "currency": "EUR",
+  "portfolio": [
+    {
+      "symbol": "BTC",
+      "amount": 0.50
+    },
+    {
+      "symbol": "ETH",
+      "amount": 1.0
+    }
+  ]
 }
 ```
 
-2. run `python3 downloader.py`, which downloads the crypto currency data and saves it as JSON in `crypto-data.json`
-3. run `python3 cryptotracker.py` to display the selected currencies
+* `api_key`: the token you generate on coinmarketcap.com
+* `symbols`: the crypto currencies you like to include in your email report
+* `currency`: which fiat currency (e.g. EUR, USD) to convert to
+* `portfolio`: your personal assets
 
-
-Note that `crypto-data.json` will contain at least 100 data points, which might be much more than the crypto currencies specified in your `user-data.json`. The symbols list there is only needed for displaying your favorites when running `cryptotracker.py`.
-
-4. configure `email.json` if you want to use the email sending feature
+2. configure `email.json` 
 
 ```
 {
@@ -40,6 +54,18 @@ Note that `crypto-data.json` will contain at least 100 data points, which might 
 }
 ```
 
-5. run `python3 mailer.py`
+* `email_from`: the email address used for sending the email
+* `email_from_password`: the password for the email address
+* `email_from_smtp`: the smtp server of your email provider
+* `email_from_port`: the smtp port of your email provider (defaults to 587)
+* `email_to`: where to send the email to
+
+3. run `python3 downloader.py`, which downloads the crypto currency data and saves it as JSON in `crypto-data.json`
+4. run `python3 cryptotracker.py` to display the selected currencies and send an email
+
+Note that `crypto-data.json` will contain at least 100 data points, which might be much more than the crypto currencies specified in your `user-data.json`. The symbols list there is only needed for displaying your favorites when running `cryptotracker.py`.
+
+
+
    
 

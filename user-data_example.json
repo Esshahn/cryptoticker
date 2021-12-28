@@ -1,5 +1,23 @@
 {
   "api_key": "your-coinmarketcap-api-key",
   "symbols": ["BTC","ETH","SOL","MATIC"],
-  "currency": "EUR"
+  "currency": "EUR",
+  "portfolio": [
+    {
+      "symbol": "BTC",
+      "amount": 0.50
+    },
+    {
+      "symbol": "ETH",
+      "amount": 1.0
+    },
+    {
+      "symbol": "SOL",
+      "amount": 10
+    },
+    {
+      "symbol": "MATIC",
+      "amount": 150.551
+    }
+  ]
 }
