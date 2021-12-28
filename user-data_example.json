@@ -1,0 +1,5 @@
+{
+  "api_key": "your-coinmarketcap-api-key",
+  "symbols": ["BTC","ETH","SOL","MATIC"],
+  "currency": "EUR"
+}

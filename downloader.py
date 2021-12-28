@@ -1,0 +1,41 @@
+import json
+import requests
+
+
+def download_latest_crypto_data(config):
+    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
+    parameters = {
+        "start": 1,
+        "limit": 5000,
+        "convert": config["currency"],
+    }
+    headers = {
+        "X-CMC_PRO_API_KEY": config["api_key"],
+        "Accept": "application/json"
+    }
+    response = requests.get(url, params=parameters, headers=headers)
+    data = response.json()
+    return data
+
+
+def load_json(filename):
+    with open(filename) as f:
+        data = json.load(f)
+    return data
+
+
+def save_file(filename, data):
+    f = open(filename, "w")
+    f.write(data)
+    f.close()
+    print("saving: "+filename)
+
+
+def get_user_config():
+    config = load_json("user-data.json")
+    return config
+
+
+config = get_user_config()
+data = download_latest_crypto_data(config)
+save_file("crypto-data.json", json.dumps(data))

@@ -1,4 +1,4 @@
-# curl -H "X-CMC_PRO_API_KEY: dd99003f-3bcf-4a24-9c23-c809389b4c1d" -H "Accept: application/json" -d "start=1&limit=5000&convert=EUR" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
+
 
 import json
 
@@ -6,7 +6,7 @@ import json
 def load_json(filename):
     with open(filename) as f:
         data = json.load(f)
-    return data["data"]
+    return data
 
 
 def save_file(filename, data):
@@ -37,7 +37,9 @@ def display_crypto_data(symbols, crypto):
             print("Symbol not found: "+symbol)
 
 
-crypto = load_json("list.json")
+crypto_all = load_json("crypto-data.json")
+crypto = crypto_all["data"]
 
-symbols = ["BTC", "ETH", "SOL", "MATIC"]
+user_all = load_json("user-data.json")
+symbols = user_all["symbols"]
 display_crypto_data(symbols, crypto)
