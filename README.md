@@ -28,3 +28,18 @@ Simple python script that downloads crypto currency information from coinmarketc
 
 Note that `crypto-data.json` will contain at least 100 data points, which might be much more than the crypto currencies specified in your `user-data.json`. The symbols list there is only needed for displaying your favorites when running `cryptotracker.py`.
 
+4. configure `email.json` if you want to use the email sending feature
+
+```
+{
+  "email_from": "",
+  "email_from_password": "",
+  "email_from_smtp": "",
+  "email_from_port": 587,
+  "email_to_default": ""
+}
+```
+
+5. run `python3 mailer.py`
+   
+
