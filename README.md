@@ -67,7 +67,14 @@ Note that `crypto-data.json` will contain at least 100 data points, which might 
 
 To make this script more convenient for cron job execution, `crypto.py` has been added, which executes both scripts. Therefore, some commands in `downloader.py` and `tracker.py` have been commented out. If you still want to execute these scripts independent from each other (which would make sense if you e.g. want other options than to send emails), just uncomment the last lines in each files.
 
+## Setup a cron job (e.g. on Raspberry PI)
 
+good tutorial here: https://medium.com/@gavinwiener/how-to-schedule-a-python-script-cron-job-dea6cbf69f4e
 
+`crontab -e`
+
+Add a line, e.g. mine is every day at 07:00
+
+`00 07 * * * /usr/bin/python3 /home/pi/code/cryptoticker/crypto.py`
    
 
