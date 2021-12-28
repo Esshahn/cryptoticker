@@ -2,8 +2,8 @@
 # Cryptoticker
 # Python Script to get the current prices of crypto currencies
 # and send an email with the current prices
-#
-#
+# 2021 Ingo Hinterding
+# https://github.com/Esshahn/cryptoticker
 # -------------------------------------------------
 
 from tracker import *
