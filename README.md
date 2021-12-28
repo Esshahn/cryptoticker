@@ -61,9 +61,11 @@ Simple python script that downloads crypto currency information from coinmarketc
 * `email_to`: where to send the email to
 
 3. run `python3 downloader.py`, which downloads the crypto currency data and saves it as JSON in `crypto-data.json`
-4. run `python3 cryptotracker.py` to display the selected currencies and send an email
+4. run `python3 tracker.py` to display the selected currencies and send an email
 
-Note that `crypto-data.json` will contain at least 100 data points, which might be much more than the crypto currencies specified in your `user-data.json`. The symbols list there is only needed for displaying your favorites when running `cryptotracker.py`.
+Note that `crypto-data.json` will contain at least 100 data points, which might be much more than the crypto currencies specified in your `user-data.json`. The symbols list there is only needed for displaying your favorites when running `tracker.py`.
+
+To make this script more convenient for cron job execution, `crypto.py` has been added, which executes both scripts. Therefore, some commands in `downloader.py` and `tracker.py` have been commented out. If you still want to execute these scripts independent from each other (which would make sense if you e.g. want other options than to send emails), just uncomment the last lines in each files.
 
 
 
