@@ -5,8 +5,6 @@ import requests
 def download_latest_crypto_data(config):
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
     parameters = {
-        "start": 1,
-        "limit": 5000,
         "convert": config["currency"],
     }
     headers = {
@@ -31,11 +29,6 @@ def save_file(filename, data):
     print("saving: "+filename)
 
 
-def get_user_config():
-    config = load_json("user-data.json")
-    return config
-
-
-config = get_user_config()
+config = load_json("user-data.json")
 data = download_latest_crypto_data(config)
 save_file("crypto-data.json", json.dumps(data))
