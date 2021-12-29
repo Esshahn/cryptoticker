@@ -5,19 +5,23 @@
   "portfolio": [
     {
       "symbol": "BTC",
-      "amount": 0.50
+      "amount": 0.50,
+      "cost": 10
     },
     {
       "symbol": "ETH",
-      "amount": 1.0
+      "amount": 1.0,
+      "cost": 10
     },
     {
       "symbol": "SOL",
-      "amount": 10
+      "amount": 10,
+      "cost": 10
     },
     {
       "symbol": "MATIC",
-      "amount": 150.551
+      "amount": 150.551,
+      "cost": 10
     }
   ]
 }

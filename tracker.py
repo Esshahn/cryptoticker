@@ -25,12 +25,12 @@ def format_crypto_data(symbols, crypto):
         item = find_symbol_in_list(symbol, crypto)
         if item is not None:
             if item["quote"]["EUR"]["percent_change_24h"] < 0:
-                trend = "down"
+                trend = "\u25BC"
             else:
-                trend = "up"
-            msg += str(item["name"] + " (" + item["symbol"]) + "): "
+                trend = "\u25B2"
+            msg += str(item["name"] + " (" + item["symbol"]) + ")\t"
             msg += str(round(item["quote"]["EUR"]
-                             ["price"], 2)) + " EUR, " + trend + " "
+                             ["price"], 2)) + " EUR \t" + trend + " "
             msg += str(round(item["quote"]["EUR"]
                              ["percent_change_24h"], 2))+"%"
             msg += "\n"
@@ -53,16 +53,29 @@ def create_portfolio(portfolio, crypto):
 
 def format_portfolio(portfolio):
     msg = "Portfolio:\n"
+    msg += "Currency \tWorth\t\tProfit/Loss\tReturn\n"
     total_worth = 0
+    total_profit = 0
+
     for item in portfolio:
-        msg += str(item["name"] + " (" + item["symbol"]) + "): "
+        msg += str(item["name"] + " (" + item["symbol"]) + ")\t"
         msg += str(round(item["value"], 2)) + " EUR"
+        msg += "\t" + str(round(item["value"]-item["cost"], 2)) + " EUR"
+        msg += "\t" + \
+            str(round(((item["value"]-item["cost"]) /
+                       item["cost"]*100), 2)) + "%"
         msg += "\n"
         total_worth += item["value"]
-    msg += "\nTotal: " + str(round(total_worth, 2)) + " EUR"
+        total_profit += item["value"]-item["cost"]
+    msg += "\nTotal\t\t" + str(round(total_worth, 2)) + " EUR"
+    msg += "\t" + str(round(total_profit, 2)) + " EUR"
 
     print(msg)
     return msg
+
+
+def tab(item):
+    return "\t" + item
 
 
 def send_mail(bodymsg, email):

@@ -27,11 +27,13 @@ Simple python script that downloads crypto currency information from coinmarketc
   "portfolio": [
     {
       "symbol": "BTC",
-      "amount": 0.50
+      "amount": 0.50,
+      "cost": 10
     },
     {
       "symbol": "ETH",
-      "amount": 1.0
+      "amount": 1.0,
+      "cost": 10
     }
   ]
 }
@@ -40,7 +42,7 @@ Simple python script that downloads crypto currency information from coinmarketc
 * `api_key`: the token you generate on coinmarketcap.com
 * `symbols`: the crypto currencies you like to include in your email report
 * `currency`: which fiat currency (e.g. EUR, USD) to convert to
-* `portfolio`: your personal assets
+* `portfolio`: your personal assets (which crypto, amount of that crypto you own, how much you paid for it)
 
 2. configure `email.json` 
 
@@ -76,5 +78,29 @@ good tutorial here: https://medium.com/@gavinwiener/how-to-schedule-a-python-scr
 Add a line, e.g. mine is every day at 07:00
 
 `00 07 * * * /usr/bin/python3 /home/pi/code/cryptoticker/crypto.py`
+
+## Output
+
+If everything is configured correct, you should get an email that looks like this (and of course you can config it to your personal liking):
+
+```
+Here is your executive summary for today:
+
+Crypto prices:
+Bitcoin (BTC)	    42510.55 EUR 	▼ -3.2%
+Ethereum (ETH)	  3384.51 EUR 	▼ -2.65%
+Solana (SOL)	    157.37 EUR 	  ▼ -6.92%
+Polygon (MATIC)	  2.27 EUR 	    ▼ -3.33%
+
+Portfolio:
+Currency 	      Worth		      Profit/Loss	  Return
+Bitcoin (BTC)	  2155.0 EUR	  231.92 EUR	  12.06%
+Ethereum (ETH)	102.85 EUR	  -285.18 EUR	  -73.49%
+Solana (SOL)	  1185.28 EUR	  399.26 EUR	  50.8%
+Polygon (MATIC)	669.12 EUR	  268.11 EUR	  66.86%
+
+Total		        4112.25 EUR	  614.11 EUR
+```
+
    
 

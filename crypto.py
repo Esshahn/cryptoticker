@@ -13,9 +13,9 @@ from downloader import *
 # ------------------ downloader ------------------ #
 
 
-config = load_json("user-data.json")
-data = download_latest_crypto_data(config)
-save_file("crypto-data.json", json.dumps(data))
+#config = load_json("user-data.json")
+#data = download_latest_crypto_data(config)
+#save_file("crypto-data.json", json.dumps(data))
 
 
 # ------------------ tracker ------------------ #
