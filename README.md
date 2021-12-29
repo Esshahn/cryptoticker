@@ -88,9 +88,9 @@ Here is your executive summary for today:
 
 Crypto prices:
 Bitcoin (BTC)	    42510.55 EUR 	▼ -3.2%
-Ethereum (ETH)	  3384.51 EUR 	▼ -2.65%
+Ethereum (ETH)	    3384.51 EUR 	▼ -2.65%
 Solana (SOL)	    157.37 EUR 	  ▼ -6.92%
-Polygon (MATIC)	  2.27 EUR 	    ▼ -3.33%
+Polygon (MATIC)	    2.27 EUR 	    ▼ -3.33%
 
 Portfolio:
 Currency 	      Worth		      Profit/Loss	  Return
