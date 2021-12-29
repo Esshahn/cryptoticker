@@ -90,10 +90,10 @@ Crypto prices:
 Bitcoin (BTC)	    42510.55 EUR 	▼ -3.2%
 Ethereum (ETH)	    3384.51 EUR 	▼ -2.65%
 Solana (SOL)	    157.37 EUR 	        ▼ -6.92%
-Polygon (MATIC)	    2.27 EUR 	      ▼ -3.33%
+Polygon (MATIC)	    2.27 EUR 	        ▼ -3.33%
 
 Portfolio:
-Currency 	    Worth   Profit/Loss	  Return
+Currency 	    Worth     Profit/Loss	  Return
 Bitcoin (BTC)	    2155.0 EUR	  231.92 EUR	  12.06%
 Ethereum (ETH)	    102.85 EUR	  -285.18 EUR	  -73.49%
 Solana (SOL)	    1185.28 EUR	  399.26 EUR	  50.8%
