@@ -1,4 +1,5 @@
 import json
+import sys
 import requests
 
 
@@ -17,13 +18,14 @@ def download_latest_crypto_data(config):
 
 
 def load_json(filename):
-    with open(filename) as f:
-        data = json.load(f)
-    return data
+    # load JSON
+    with open(sys.path[0] + '/' + filename) as json_file:
+        json_data = json.load(json_file)
+    return json_data
 
 
 def save_file(filename, data):
-    f = open(filename, "w")
+    f = open(sys.path[0] + '/' + filename, "w")
     f.write(data)
     f.close()
     print("saving: "+filename)
