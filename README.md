@@ -9,7 +9,7 @@ Simple python script that downloads crypto currency information from coinmarketc
 
 ## Prerequisites
 
-- API token generated from coinmarketcap.com. Note that every time you run `downloader.py`, 'credits' are spend (depending on the amount of data returned), with a total limit of 333 credits per day (as of 2021-12-28)
+- You'll need an API token generated from coinmarketcap.com in order to fetch the latest crypto data. Note that every time you run `downloader.py`, 'credits' are spend (depending on the amount of data returned), with a total limit of 333 credits per day (as of 2021-12-28)
 
 ## Install 
 
