@@ -24,13 +24,9 @@ def format_crypto_data(symbols, crypto):
     for symbol in symbols:
         item = find_symbol_in_list(symbol, crypto)
         if item is not None:
-            if item["quote"]["EUR"]["percent_change_24h"] < 0:
-                trend = "\u25BC"
-            else:
-                trend = "\u25B2"
             msg += str(item["name"] + " (" + item["symbol"]) + ")\t"
             msg += str(round(item["quote"]["EUR"]
-                             ["price"], 2)) + " EUR \t" + trend + " "
+                             ["price"], 2)) + " EUR \t"
             msg += str(round(item["quote"]["EUR"]
                              ["percent_change_24h"], 2))+"%"
             msg += "\n"
