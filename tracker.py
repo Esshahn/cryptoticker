@@ -3,6 +3,7 @@
 import json
 import sys
 import smtplib
+from datetime import datetime,timedelta
 
 
 def load_json(filename):
@@ -47,7 +48,7 @@ def create_portfolio(portfolio, crypto):
     return portfolio
 
 
-def format_portfolio(portfolio):
+def format_portfolio(portfolio,history):
     msg = "Portfolio:\n"
     msg += "Currency \tWorth\t\tProfit/Loss\tReturn\n"
     total_worth = 0
@@ -65,6 +66,22 @@ def format_portfolio(portfolio):
         total_profit += item["value"]-item["cost"]
     msg += "\nTotal\t\t" + str(round(total_worth, 2)) + " EUR"
     msg += "\t" + str(round(total_profit, 2)) + " EUR"
+
+    now = datetime.now()
+    today = now.strftime("%Y-%m-%d")
+    yesterday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+    history.update({today: {"total_worth": total_worth}})
+    f = open(sys.path[0] + '/history.json', "w")
+    f.write(json.dumps(history))
+    f.close()
+    
+    
+    try:
+        total_worth_yesterday = history[yesterday]["total_worth"]
+        daily_profit = round(total_worth - total_worth_yesterday, 2)
+        msg += "\nDaily profit:\t" + str(daily_profit) + " EUR"
+    except:
+        pass
 
     print(msg)
     return msg

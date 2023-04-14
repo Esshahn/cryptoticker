@@ -29,10 +29,3 @@ def save_file(filename, data):
     f.write(data)
     f.close()
     print("saving: "+filename)
-
-
-# ----- uncomment these if you want to run this script on its own ----- #
-
-#config = load_json("user-data.json")
-#data = download_latest_crypto_data(config)
-#save_file("crypto-data.json", json.dumps(data))

@@ -67,7 +67,7 @@ Simple python script that downloads crypto currency information from coinmarketc
 
 Note that `crypto-data.json` will contain at least 100 data points, which might be much more than the crypto currencies specified in your `user-data.json`. The symbols list there is only needed for displaying your favorites when running `tracker.py`.
 
-To make this script more convenient for cron job execution, `crypto.py` has been added, which executes both scripts. Therefore, some commands in `downloader.py` and `tracker.py` have been commented out. If you still want to execute these scripts independent from each other (which would make sense if you e.g. want other options than to send emails), just uncomment the last lines in each files.
+To make this script more convenient for cron job execution, `main.py` has been added, which executes both scripts. Therefore, some commands in `downloader.py` and `tracker.py` have been commented out. If you still want to execute these scripts independent from each other (which would make sense if you e.g. want other options than to send emails), just uncomment the last lines in each files.
 
 ## Setup a cron job (e.g. on Raspberry PI)
 
@@ -77,7 +77,7 @@ good tutorial here: https://medium.com/@gavinwiener/how-to-schedule-a-python-scr
 
 Add a line, e.g. mine is every day at 07:00
 
-`00 07 * * * /usr/bin/python3 /home/pi/code/cryptoticker/crypto.py`
+`00 07 * * * /usr/bin/python3 /home/pi/code/cryptoticker/main.py`
 
 ## Output
 
